@@ -1,0 +1,2 @@
+class AppointmentTime < ApplicationRecord
+end

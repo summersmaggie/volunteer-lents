@@ -1,0 +1,15 @@
+<div class="container">
+  <h2>Available Time Slots</h2>
+  <p>Click a time slot below that works with your schedule to make a reservation.</p>
+
+  <br>
+  <%= month_calendar events: @time_slots do |date, time_slots| %>
+    <%= date.day %>
+
+    <% time_slots.each do |time_slot| %>
+      <p><%= time_slot.contact_info %></p>
+    <% end %>
+  <% end %>
+
+  <button><%= link_to 'Back to Home', root_path %></button>
+</div>

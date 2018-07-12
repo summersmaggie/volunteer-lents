@@ -1,0 +1,29 @@
+<div class="container">
+  <p id="notice"><%= notice %></p>
+
+  <h1>Time Slots</h1>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Contact Info</th>
+        <th>Date / Time</th>
+        <th colspan="6"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @time_slots.each do |time_slot| %>
+        <tr>
+          <td><%= time_slot.name %></td>
+          <td><%= time_slot.contact_info %></td>
+          <td><%= time_slot.date_time %></td>
+        </tr>
+      <% end %>
+    </tbody>
+
+  </table>
+
+  <%= link_to 'Home', root_path %>
+</div>
