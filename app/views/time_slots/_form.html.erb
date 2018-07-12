@@ -1,3 +1,4 @@
+
 <%= form_with(model: time_slot, local: true) do |form| %>
   <% if time_slot.errors.any? %>
     <div id="error_explanation">
@@ -22,8 +23,8 @@
   </div>
   <br>
   <div class="field">
-    <%= form.label :date_time %>
-    <%= form.date_field :date_time %>
+    <%= form.label :start_time, 'What day and time are you able to volunteer?' %>
+    <%= form.datetime_field :start_time %>
   </div>
   <br>
   <div class="actions">
