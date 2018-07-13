@@ -2,17 +2,15 @@
 <p id="notice"><%= notice %></p>
 
 <div class="container">
-  <p>This appointment is available!</p>
-
   <h3>Time Slot Information:</h3>
   <ul>
     <li><strong>Date:</strong> <%= @time_slot.start_time.strftime('%I:%S %p') %></li>
     <li><strong>Time:</strong> <%= @time_slot.start_time.strftime('%A, %B %d') %></li>
-    <li><strong>Name of volunteer:</strong> <%= @time_slot.name %></li>
-    <li><strong>Volunteer's contact info:</strong> <%= @time_slot.contact_info %></li>
+    <li><strong>Name of Volunteer:</strong> <%= @time_slot.name %></li>
+    <li><strong>Volunteer's Contact Info:</strong> <%= @time_slot.contact_info %></li>
   </ul>
 
-  <button>Reserve this spot!</button>
+  <button><%= link_to 'Reserve this spot!', new_time_slot_appointment_path(@time_slot) %></button>
 
   <br>
   <%= link_to 'Edit', edit_time_slot_path(@time_slot) %> |

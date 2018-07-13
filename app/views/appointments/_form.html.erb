@@ -1,0 +1,20 @@
+<%= form_for [@time_slot, @appointment] do |form| %>
+  <div class="field">
+    <%= form.label :name, "What's your name?" %>
+    <%= form.text_field :name %>
+  </div>
+  <br>
+  <div class="field">
+    <%= form.label :contact_info, "Please enter your email or phone number:" %>
+    <%= form.text_field :contact_info %>
+  </div>
+  <br>
+  <div class="field">
+    <%= form.label :address, 'What is your address?' %>
+    <%= form.datetime_field :address %>
+  </div>
+  <br>
+  <div class="actions">
+    <%= form.submit "Claim this appointment!" %>
+  </div>
+<% end %>

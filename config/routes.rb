@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :appointment_times
+  
   resources :time_slots do
     resources :appointments
   end

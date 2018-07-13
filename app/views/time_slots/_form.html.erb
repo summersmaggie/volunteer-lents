@@ -1,4 +1,3 @@
-
 <%= form_with(model: time_slot, local: true) do |form| %>
   <% if time_slot.errors.any? %>
     <div id="error_explanation">
@@ -28,6 +27,6 @@
   </div>
   <br>
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Create new time slot" %>
   </div>
 <% end %>
