@@ -13,8 +13,8 @@ class AppointmentsController < ApplicationController
     @time_slot = TimeSlot.find(params[:time_slot_id])
     @appointment = @time_slot.appointments.new(appointment_params)
     if @appointment.save
-      flash[:notice] = "Review saved successfully!"
-      redirect_to calendars_path
+      flash[:notice] = "Appointment saved successfully!"
+      redirect_to time_slot_path(@time_slot)
     else
       flash[:alert] = "Sorry, couldn't save."
       render :new

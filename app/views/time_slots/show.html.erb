@@ -10,7 +10,13 @@
     <li><strong>Volunteer's Contact Info:</strong> <%= @time_slot.contact_info %></li>
   </ul>
 
-  <button><%= link_to 'Reserve this spot!', new_time_slot_appointment_path(@time_slot) %></button>
+  <% if @time_slot.appointments.any? %>
+    <% @appointments.each do |appointment| %>
+      <p>This time slot is reserved by <%= appointment.name %>.</p>
+    <% end %>
+  <% else %>
+      <button><%= link_to 'Reserve this spot!', new_time_slot_appointment_path(@time_slot) %></button>
+  <% end %>
 
   <br>
   <%= link_to 'Edit', edit_time_slot_path(@time_slot) %> |

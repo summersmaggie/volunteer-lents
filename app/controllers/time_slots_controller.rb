@@ -12,6 +12,7 @@ class TimeSlotsController < ApplicationController
   # GET /time_slots/1.json
   def show
     @time_slot = TimeSlot.find(params[:id])
+    @appointments = Appointment.all
   end
 
   # GET /time_slots/new
