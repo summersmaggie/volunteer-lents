@@ -5,11 +5,13 @@ class TimeSlotsController < ApplicationController
   # GET /time_slots.json
   def index
     @time_slots = TimeSlot.all
+
   end
 
   # GET /time_slots/1
   # GET /time_slots/1.json
   def show
+    @time_slot = TimeSlot.find(params[:id])
   end
 
   # GET /time_slots/new

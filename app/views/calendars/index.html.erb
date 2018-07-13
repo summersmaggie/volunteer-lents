@@ -7,8 +7,7 @@
     <%= date.day %>
 
     <% time_slots.each do |time_slot| %>
-      <p><%= time_slot.start_time.strftime('%A, %d %b %Y %l:%M %p') %>
-      <p><%= time_slot.contact_info %></p>
+      <p><%= link_to time_slot.start_time.strftime('%I:%S %p'), time_slot_path(time_slot) %>
     <% end %>
   <% end %>
 
