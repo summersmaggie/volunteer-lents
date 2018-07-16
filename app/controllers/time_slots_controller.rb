@@ -5,12 +5,12 @@ class TimeSlotsController < ApplicationController
   # GET /time_slots.json
   def index
     @time_slots = TimeSlot.all
-
   end
 
   # GET /time_slots/1
   # GET /time_slots/1.json
   def show
+    @time_slots = TimeSlot.all
     @time_slot = TimeSlot.find(params[:id])
     @appointments = Appointment.all
     @appointment = Appointment.find(@time_slot.id)
@@ -34,6 +34,7 @@ class TimeSlotsController < ApplicationController
       if @time_slot.save
         format.html { redirect_to @time_slot, notice: 'Time slot was successfully created.' }
         format.json { render :show, status: :created, location: @time_slot }
+        redirect_to calendars_path
       else
         format.html { render :new }
         format.json { render json: @time_slot.errors, status: :unprocessable_entity }
