@@ -5,6 +5,7 @@ class TimeSlotsController < ApplicationController
   # GET /time_slots.json
   def index
     @time_slots = TimeSlot.all
+    @appointments = Appointment.all
   end
 
   # GET /time_slots/1
@@ -32,9 +33,8 @@ class TimeSlotsController < ApplicationController
 
     respond_to do |format|
       if @time_slot.save
-        format.html { redirect_to @time_slot, notice: 'Time slot was successfully created.' }
+        format.html { redirect_to time_slots_path, notice: 'Time slot was successfully created.' }
         format.json { render :show, status: :created, location: @time_slot }
-        redirect_to calendars_path
       else
         format.html { render :new }
         format.json { render json: @time_slot.errors, status: :unprocessable_entity }
