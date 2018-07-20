@@ -8,20 +8,21 @@
       <tr>
         <th>Name of Volunteer</th>
         <th>Contact Info</th>
-        <th>Date</th>
         <th>Time</th>
-        <th>Reserved by:</th>
+        <th>Date</th>
+        <th>Reserved By</th>
         <th colspan="6"></th>
       </tr>
     </thead>
 
     <tbody>
       <tr>
-        <td><%= @time_slot.name %></td>
-        <td><%= @time_slot.contact_info %></td>
-        <td><%= @time_slot.start_time.strftime('%I:%M %p') %></td>
-        <td><%= @time_slot.start_time.strftime('%A, %B %d') %></td>
-        <td><%= @appointment.name %>
+          <td><%= @time_slot.name %></td>
+          <td><%= @time_slot.contact_info %></td>
+          <td><%= @time_slot.start_time.strftime('%I:%M %p') %></td>
+          <td><%= @time_slot.start_time.strftime('%A, %B %d') %></td>
+          <td><%= @appointment.name %>
+
       </tr>
   </table>
 

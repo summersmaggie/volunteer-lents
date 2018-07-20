@@ -1,7 +1,15 @@
 <div class="container">
-  <h1>Claim this time slot!</h1>
+    <h2>Time Slot: <%= @time_slot.start_time.strftime('%A, %B %d') %> at <%= @time_slot.start_time.strftime('%I:%M %p') %> </h2>
 
-  <%= render 'form' %>
+  <div class="row" id="new-time-slot">
+    <div class="col-sm-6">
+      <h4>Claim this time slot:</h4>
+      <%= render 'form' %>
+    </div>
 
-  <%= link_to 'Back', calendars_path %>
+    <div class="col-sm-6">
+      <h4><%= link_to 'Find a different time slot', time_slots_path %></h4>
+    </div>
+
+  </div>
 </div>

@@ -14,3 +14,10 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+//= require jquery
+
+$(document).ready(function(){
+  $('.time_slot_list').live('click', function() {
+      $('#time_slots').toggle();
+  });
+});

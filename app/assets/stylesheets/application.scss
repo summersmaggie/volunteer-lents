@@ -3,3 +3,15 @@
 */
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+#new-time-slot h2 {
+  text-decoration: underline;
+}
+
+#new-time-slot h4 {
+  color: #c1254c;
+}
+
+#time_slots {
+  display: none;
+}
