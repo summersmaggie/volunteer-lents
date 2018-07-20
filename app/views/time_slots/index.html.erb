@@ -1,5 +1,5 @@
 <div class="container">
-  <h2>Available Time Slots</h2>
+  <h2>Calendar</h2>
   <p>Click a time slot below that works with your schedule to make a reservation.
   <p>Note: Times in <a style="text-decoration: none"><strong>blue</a></strong> are still available. Times in <strong>black</strong> have already been reserved.</p>
 
@@ -17,35 +17,37 @@
   <% end %>
 
   <button><%= link_to 'Back to Home', root_path %></button>
-  <button class="time_slot_list">See reservations in a list</button>
-    <div id="time_slots">
-      <table class="table">
-        <thead>
-          <tr>
-            <th>Name of Volunteer</th>
-            <th>Contact Info</th>
-            <th>Time</th>
-            <th>Date</th>
-            <th>Reserved By</th>
-            <th colspan="6"></th>
-          </tr>
-        </thead>
+  <button class="time_slot_list"><a>See Reservations in a List</a></button>
+</div>
 
-        <tbody>
-          <% @time_slots.each do |time_slot| %>
-          <tr>
-            <td><%= time_slot.name %></td>
-            <td><%= time_slot.contact_info %></td>
-            <td><%= time_slot.start_time.strftime('%I:%M %p') %></td>
-            <td><%= time_slot.start_time.strftime('%A, %B %d') %></td>
-            <% if time_slot.appointments.any? %>
-              <td><strong><%= time_slot.start_time.strftime('%I:%M %p') %></strong></td>
-            <% else %>
-              <td><strong><%= link_to time_slot.start_time.strftime('%I:%M %p'), new_time_slot_appointment_path(time_slot.id) %></strong></td>
-              <% end %>
-          </tr>
-          <% end %>
-      </table>
-    </div>
+<div class="container">
+  <div id="time_slots">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name of Volunteer</th>
+          <th>Contact Info</th>
+          <th>Date, Time</th>
+          <th>Reserved?</th>
+          <th>Details</th>
+          <th colspan="6"></th>
+        </tr>
+      </thead>
 
+      <tbody>
+        <% @time_slots.each do |time_slot| %>
+        <tr>
+          <td><%= time_slot.name %></td>
+          <td><%= time_slot.contact_info %></td>
+          <td><%= time_slot.start_time.strftime('%A, %B %d') %> at <%= time_slot.start_time.strftime('%I:%M %p') %></td>
+          <% if time_slot.appointments.any? %>
+            <td><strong>Yes</strong></td>
+          <% else %>
+            <td><strong><%= link_to 'Reserve Now', new_time_slot_appointment_path(time_slot.id) %></strong></td>
+            <% end %>
+          <td><%= link_to 'Details', time_slot_path(time_slot.id) %></td>
+        </tr>
+        <% end %>
+    </table>
+  </div>
 </div>
