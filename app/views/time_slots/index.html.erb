@@ -1,7 +1,6 @@
 <div class="container">
-  <h2>Calendar</h2>
-  <p>Click a time slot below that works with your schedule to make a reservation.
-  <p>Note: Times in <a style="text-decoration: none"><strong>blue</a></strong> are still available. Times in <strong>black</strong> have already been reserved.</p>
+  <h1>Welcome to Volunteer Lents!</h1>
+  <h4>Click a time slot in the calendar below to make a reservation, or <%= link_to 'sign up to volunteer!', new_time_slot_path %></h4>
 
   <br>
   <%= month_calendar events: @time_slots do |date, time_slots| %>
@@ -16,8 +15,8 @@
     <% end %>
   <% end %>
 
-  <button><%= link_to 'Back to Home', root_path %></button>
-  <button class="time_slot_list"><a>See Reservations in a List</a></button>
+  <button class="time_slot_list"><a>List of Time Slots</a></button>
+  <button><%= link_to 'Sign up to Volunteer', new_time_slot_path %></button>
 </div>
 
 <div class="container">
@@ -29,7 +28,7 @@
           <th>Contact Info</th>
           <th>Date, Time</th>
           <th>Reserved?</th>
-          <th>Details</th>
+          <th>Reservation Details</th>
           <th colspan="6"></th>
         </tr>
       </thead>
@@ -45,7 +44,9 @@
           <% else %>
             <td><strong><%= link_to 'Reserve Now', new_time_slot_appointment_path(time_slot.id) %></strong></td>
             <% end %>
-          <td><%= link_to 'Details', time_slot_path(time_slot.id) %></td>
+          <% if time_slot.appointments.any? %>
+            <td><%= link_to 'Details', time_slot_path(time_slot.id) %></td>
+          <% end %>
         </tr>
         <% end %>
     </table>

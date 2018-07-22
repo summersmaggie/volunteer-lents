@@ -33,7 +33,7 @@ class TimeSlotsController < ApplicationController
 
     respond_to do |format|
       if @time_slot.save
-        format.html { redirect_to time_slots_path, notice: 'Time slot was successfully created.' }
+        format.html { redirect_to time_slots_path, notice: 'Thanks for signing up!' }
         format.json { render :show, status: :created, location: @time_slot }
       else
         format.html { render :new }
